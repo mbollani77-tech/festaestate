@@ -1,410 +1,127 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Festa d’Estate - Rotary Club Chiari</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festa d’Estate - Rotary Club Chiari</title>
 
-  <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f7f4fb;
+}
 
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #f7f4fb;
-      color: #1c2f61;
-    }
+.container {
+  max-width:700px;
+  margin:40px auto;
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 18px clamp(18px, 5vw, 70px);
-      background: #fff;
-      border-bottom: 1px solid #eadff0;
-      font-family: Arial, Helvetica, sans-serif;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+h1 {
+  text-align:center;
+  color:#c0188f;
+}
 
-    .brand {
-      font-weight: 700;
-      color: #1c2f61;
-      font-size: 22px;
-    }
+label {
+  display:block;
+  margin-top:15px;
+  font-weight:bold;
+}
 
-    .brand span { color: #c0188f; }
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  margin-top:5px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
 
-    .admin-link {
-      color: #fff;
-      background: #1c2f61;
-      padding: 10px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 14px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+button {
+  width:100%;
+  margin-top:20px;
+  padding:15px;
+  background:#c0188f;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
 
-    .hero {
-      min-height: 620px;
-      display: grid;
-      align-items: center;
-      padding: 70px clamp(20px, 6vw, 90px);
-      background:
-        linear-gradient(90deg, rgba(10,28,72,0.88), rgba(10,28,72,0.55), rgba(192,24,143,0.22)),
-        url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=80") center/cover;
-      color: #fff;
-    }
-
-    .hero-card {
-      max-width: 760px;
-      background: rgba(255,255,255,0.92);
-      color: #1c2f61;
-      padding: clamp(28px, 5vw, 56px);
-      border-radius: 28px;
-      box-shadow: 0 28px 70px rgba(0,0,0,0.25);
-      border-top: 12px solid #c0188f;
-    }
-
-    .kicker {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 15px;
-      color: #1c2f61;
-      font-family: Arial, Helvetica, sans-serif;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      margin: 0;
-      color: #c0188f;
-      font-size: clamp(48px, 8vw, 96px);
-      line-height: 0.9;
-      text-transform: uppercase;
-    }
-
-    .subtitle {
-      margin: 20px 0 0;
-      font-size: clamp(21px, 3vw, 34px);
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .hero-details {
-      margin-top: 26px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .detail-pill {
-      padding: 14px 16px;
-      background: #f8eef7;
-      border-radius: 16px;
-      border: 1px solid #ead0e5;
-      font-size: 16px;
-      line-height: 1.35;
-    }
-
-    .detail-pill strong {
-      display: block;
-      color: #c0188f;
-      margin-bottom: 4px;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .btn {
-      display: inline-block;
-      border: 0;
-      border-radius: 999px;
-      padding: 15px 24px;
-      font-size: 17px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .primary { background: #c0188f; color: #fff; }
-    .secondary { background: #1c2f61; color: #fff; }
-
-    .section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 54px 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 24px;
-      padding: clamp(24px, 4vw, 38px);
-      box-shadow: 0 18px 50px rgba(28,47,97,0.10);
-      border: 1px solid #eee4f2;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: 34px;
-      color: #1c2f61;
-    }
-
-    .mission {
-      font-size: 20px;
-      line-height: 1.6;
-      margin-top: 0;
-    }
-
-    .highlight {
-      margin-top: 22px;
-      padding: 18px;
-      border-radius: 18px;
-      background: #f8eef7;
-      border-left: 6px solid #c0188f;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.5;
-    }
-
-    label {
-      display: block;
-      margin: 15px 0 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 700;
-      color: #1c2f61;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      border: 1px solid #d8cde2;
-      background: #fff;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 16px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    textarea {
-      min-height: 96px;
-      resize: vertical;
-    }
-
-    .two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .privacy {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin-top: 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .privacy input {
-      width: auto;
-      margin-top: 4px;
-    }
-
-    .submit {
-      width: 100%;
-      margin-top: 22px;
-      background: #c0188f;
-      color: #fff;
-      border: 0;
-      border-radius: 16px;
-      padding: 17px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .success {
-      display: none;
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 14px;
-      background: #eaf7ec;
-      color: #1f6b2b;
-      border: 1px solid #b9dfc0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.45;
-    }
-
-    .small {
-      margin-top: 10px;
-      color: #6c6c7a;
-      font-size: 13px;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.45;
-    }
-
-    .hidden-frame {
-      display: none;
-      width: 0;
-      height: 0;
-      border: 0;
-    }
-
-    footer {
-      padding: 28px 20px;
-      text-align: center;
-      background: #fff;
-      color: #1c2f61;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    @media (max-width: 900px) {
-      .hero { min-height: auto; }
-      .hero-details, .grid, .two { grid-template-columns: 1fr; }
-      .topbar { align-items: flex-start; flex-direction: column; }
-    }
-  </style>
+.success {
+  display:none;
+  margin-top:15px;
+  padding:10px;
+  background:#eaf7ec;
+  color:green;
+  border-radius:10px;
+}
+</style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="brand">Rotary <span>Club Chiari</span></div>
-    <a class="admin-link" href="admin.html">Area organizzatori</a>
-  </header>
 
-  <section class="hero">
-    <div class="hero-card">
-      <div class="kicker">Il Rotary Club Chiari vi invita alla</div>
-      <h1>Festa d’Estate</h1>
-      <div class="subtitle">Cena di gala · Passaggio di consegne</div>
+<div class="container">
+<h1>Registrazione evento</h1>
 
-      <div class="hero-details">
-        <div class="detail-pill"><strong>Quando</strong>Giovedì 18 giugno · ore 19:30</div>
-        <div class="detail-pill"><strong>Dove</strong>Villa Mazzotti, Chiari</div>
-        <div class="detail-pill"><strong>Indirizzo</strong>Via G. Mazzini, 39</div>
-        <div class="detail-pill"><strong>Progetto</strong>End Polio Now</div>
-      </div>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 
-      <div class="cta-row">
-        <a class="btn primary" href="#registrazione">Iscriviti alla serata</a>
-        <a class="btn secondary" href="#info">Scopri l’evento</a>
-      </div>
-    </div>
-  </section>
+<form id="form"
+action="https://docs.google.com/forms/d/e/1FAIpQLSeLeAOPprrmzX6BkEd6YiCXZ3d05xISg0DlAAW7CFw-f01e4A/formResponse"
+method="POST"
+target="hidden_iframe">
 
-  <main>
-    <section id="info" class="section grid">
-      <div class="card">
-        <h2>La serata</h2>
-        <p class="mission">
-          Una cena di gala presso Villa Mazzotti a Chiari, dedicata al passaggio di consegne del Rotary Club Chiari
-          e al sostegno del progetto Rotary “End Polio Now” per l’eradicazione della polio.
-        </p>
-        <div class="highlight">
-          Durante la serata è previsto un omaggio al Maestro Vittorio Buffoli, con musica e immagini legate ai grandi interpreti della canzone italiana.
-        </div>
-      </div>
+<label>Nome</label>
+<input name="entry.1648749368" required>
 
-      <div id="registrazione" class="card">
-        <h2>Registrazione partecipanti</h2>
+<label>Cognome</label>
+<input name="entry.868688176" required>
 
-        <iframe class="hidden-frame" name="googleFormFrame" id="googleFormFrame"></iframe>
+<label>Email</label>
+<input type="email" name="entry.1859203311" required>
 
-        <form
-          id="registrationForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSeLeAOPprrmzX6BkEd6YiCXZ3d05xISg0DlAAW7CFw-f01e4A/formResponse"
-          method="POST"
-          target="googleFormFrame">
+<label>Telefono</label>
+<input name="entry.104973273" required>
 
-          <div class="two">
-            <div>
-              <label for="nome">Nome *</label>
-              <input id="nome" name="entry.1648749368" required />
-            </div>
-            <div>
-              <label for="cognome">Cognome *</label>
-              <input id="cognome" name="entry.868688176" required />
-            </div>
-          </div>
+<label>Numero partecipanti</label>
+<select name="entry.1955189742" required>
+<option value="">Seleziona</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+</select>
 
-          <div class="two">
-            <div>
-              <label for="email">Email *</label>
-              <input id="email" type="email" name="entry.1859203311" required />
-            </div>
-            <div>
-              <label for="telefono">Telefono *</label>
-              <input id="telefono" type="tel" name="entry.104973273" required />
-            </div>
-          </div>
+<label>Nomi altri partecipanti</label>
+<textarea name="entry.397060786"></textarea>
 
-          <label for="partecipanti">Numero partecipanti *</label>
-          <select id="partecipanti" name="entry.1955189742" required>
-            <option value="">Seleziona</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-          </select>
+<label>Note</label>
+<textarea name="entry.488871536"></textarea>
 
-          <label for="altri">Nomi altri partecipanti</label>
-          <textarea id="altri" name="entry.397060786" placeholder="Es. Mario Rossi, Laura Bianchi..."></textarea>
+<button type="submit">Invia</button>
 
-          <label for="note">Note / intolleranze / richieste</label>
-          <textarea id="note" name="entry.488871536" placeholder="Inserisci eventuali comunicazioni per l’organizzazione"></textarea>
+<div id="ok" class="success">
+Registrazione inviata correttamente ✔
+</div>
 
-          <label class="privacy">
-            <input type="checkbox" required />
-            <span>Autorizzo il trattamento dei dati per la gestione della registrazione all’evento.</span>
-          </label>
+</form>
+</div>
 
-          <button class="submit" type="submit">Invia registrazione</button>
+<script>
+document.getElementById("form").addEventListener("submit", function() {
+  setTimeout(function(){
+    document.getElementById("ok").style.display="block";
+    document.getElementById("form").reset();
+  }, 800);
+});
+</script>
 
-          <p class="small">
-            La registrazione viene salvata nel Google Sheet collegato al modulo.
-          </p>
-
-          <div id="success" class="success">
-            Registrazione ricevuta. Grazie! L’organizzazione ti confermerà la partecipazione.
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Info: 0307002776 · servicercchiari@gmail.com
-  </footer>
-
-  <script>
-    document.getElementById("registrationForm").addEventListener("submit", function() {
-      const form = this;
-
-      setTimeout(function() {
-        document.getElementById("success").style.display = "block";
-        form.reset();
-      }, 800);
-    });
-  </script>
 </body>
 </html>
 <!-- primo deploy -->
