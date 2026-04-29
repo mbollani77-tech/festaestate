@@ -1,4 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Area organizzatori - Festa d’Estate</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #1c2f61, #c0188f);
+      color: #1c2f61;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(620px, 100%);
+      background: #fff;
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: #c0188f;
+      text-align: center;
+      font-size: 34px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 14px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .primary {
+      background: #c0188f;
+      color: #fff;
+    }
+
+    .secondary {
+      background: #1c2f61;
+      color: #fff;
+    }
+
+    .light {
+      background: #f3eef8;
+      color: #1c2f61;
+      border: 1px solid #e2d4ec;
+    }
+
+    .note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Area organizzatori</h1>
+    <p>
+      Da questa pagina puoi accedere agli strumenti di gestione delle registrazioni.
+    </p>
+
+    <div class="buttons">
+      <a class="primary" href="https://forms.google.com" target="_blank">
+        Apri Google Forms
+      </a>
+
+      <a class="secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLeAOPprrmzX6BkEd6YiCXZ3d05xISg0DlAAW7CFw-f01e4A/viewform?usp=header" target="_blank">
+        Apri modulo pubblico
+      </a>
+
+      <a class="light" href="index.html">
+        Torna al sito
+      </a>
+    </div>
+
+    <div class="note">
+      Per vedere Excel: apri Google Forms → Risposte → icona verde Fogli Google.
+    </div>
+  </div>
+</body>
+</html><!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8" />
