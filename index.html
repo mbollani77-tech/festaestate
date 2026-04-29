@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Festa d’Estate - Rotary Club Chiari</title>
-  <script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=5I_5qZOJnypuhxGlLfxn4lYAaq8hdA1BHBxTU9gxxG-ZnzTQgXeq19dK0rCdKvLVoVLAMlncVpApgjV-PDS8Xt5yKHxReuKr5DdXoMurhMTq_v07be0FU3E6Lo1wskpLcUtduxVuVk1gkEVdCeOlRADx-vmDQoAnuNAmwIULeB-FQGslrNECIVWLcnkfL-6BC60AtCP-sUl0kM_cVlv7KUIkLCnc6u4CYuw5zVt-KchvjKdn0NSBlpr5y8sX0VOqLWICXCXyXRL1t02bPGHHjw" charset="UTF-8"></script><style>
+
+  <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
@@ -15,73 +16,7 @@
       color: #1c2f61;
     }
 
-    .lock-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: linear-gradient(135deg, #1c2f61, #c0188f);
-    }
-
-    .lock-card {
-      width: min(420px, 100%);
-      background: #fff;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
-      text-align: center;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .lock-card h1 {
-      margin: 0 0 10px;
-      color: #1c2f61;
-      font-size: 28px;
-    }
-
-    .lock-card p {
-      margin: 0 0 20px;
-      color: #5d6673;
-      line-height: 1.5;
-    }
-
-    .password-row {
-      display: grid;
-      gap: 12px;
-    }
-
-    .password-row input {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid #d8cde2;
-      font-size: 16px;
-    }
-
-    .password-row button {
-      border: 0;
-      border-radius: 14px;
-      padding: 14px 18px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      color: #fff;
-      background: #c0188f;
-    }
-
-    .error {
-      min-height: 22px;
-      margin-top: 12px;
-      color: #b42318;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .site { display: none; }
-    .site.visible { display: block; }
+    .site { display: block; }
 
     .topbar {
       display: flex;
@@ -353,18 +288,6 @@
 </head>
 
 <body>
-  <div class="lock-screen" id="lockScreen">
-    <div class="lock-card">
-      <h1>Accesso riservato</h1>
-      <p>Inserisci la password per visualizzare la pagina dell’evento.</p>
-      <div class="password-row">
-        <input id="passwordInput" type="password" placeholder="Password" autocomplete="current-password" />
-        <button type="button" onclick="checkPassword()">Entra</button>
-      </div>
-      <div class="error" id="passwordError"></div>
-    </div>
-  </div>
-
   <div class="site" id="siteContent">
     <header class="topbar">
       <div class="brand">Rotary <span>Club Chiari</span></div>
@@ -413,7 +336,7 @@
             id="registrationForm"
             action="https://docs.google.com/forms/d/e/1FAIpQLSeLeAOPprrmzX6BkEd6YiCXZ3d05xISg0DlAAW7CFw-f01e4A/formResponse"
             method="POST"
-            target="_blank">
+            target="googleFormFrame">
 
             <div class="two">
               <div>
@@ -440,12 +363,12 @@
             <label for="partecipanti">Numero partecipanti *</label>
             <select id="partecipanti" name="entry.1955189742" required>
               <option value="">Seleziona</option>
-              <option value="Opzione 1">1</option>
-              <option value="Opzione 2">2</option>
-              <option value="Opzione 3">3</option>
-              <option value="Opzione 4">4</option>
-              <option value="Opzione 5">5</option>
-              <option value="Opzione 6">6</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
             </select>
 
             <label for="altri">Nomi altri partecipanti</label>
@@ -479,37 +402,9 @@
   </div>
 
   <script>
-    const PASSWORD = "Lepasswordsonolemigliori123!";
-
-    function unlockSite() {
-      document.getElementById("lockScreen").style.display = "none";
-      document.getElementById("siteContent").classList.add("visible");
-      sessionStorage.setItem("rotaryAccessGranted", "true");
-    }
-
-    function checkPassword() {
-      const value = document.getElementById("passwordInput").value;
-      const error = document.getElementById("passwordError");
-
-      if (value === PASSWORD) {
-        unlockSite();
-      } else {
-        error.textContent = "Password non corretta.";
-      }
-    }
-
-    document.getElementById("passwordInput").addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        checkPassword();
-      }
-    });
-
-    if (sessionStorage.getItem("rotaryAccessGranted") === "true") {
-      unlockSite();
-    }
-
     document.getElementById("registrationForm").addEventListener("submit", function() {
       const form = this;
+
       setTimeout(function() {
         document.getElementById("success").style.display = "block";
         form.reset();
