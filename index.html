@@ -6,6 +6,7 @@
   <title>Festa d’Estate - Rotary Club Chiari</title>
   <style>
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Georgia, 'Times New Roman', serif;
@@ -21,6 +22,9 @@
       background: #fff;
       border-bottom: 1px solid #eadff0;
       font-family: Arial, Helvetica, sans-serif;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
     .brand {
       font-weight: 700;
@@ -211,68 +215,6 @@
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.45;
     }
-    .admin {
-      background: #101f45;
-      color: #fff;
-    }
-    .admin h2 { color: #fff; }
-    .admin-shell {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 54px 20px;
-    }
-    .admin-panel {
-      display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 24px;
-    }
-    .admin-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 24px;
-      padding: 28px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    .login-box {
-      background: #fff;
-      color: #1c2f61;
-      border-radius: 20px;
-      padding: 22px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 16px;
-      font-size: 14px;
-      overflow: hidden;
-      border-radius: 14px;
-    }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.16);
-      text-align: left;
-    }
-    th { background: rgba(255,255,255,0.14); }
-    .pill {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: #dff7e5;
-      color: #1f6b2b;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .download {
-      display: block;
-      margin-top: 14px;
-      padding: 15px;
-      background: #c0188f;
-      color: #fff;
-      text-align: center;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 700;
-    }
     .small {
       margin-top: 10px;
       color: #6c6c7a;
@@ -280,7 +222,6 @@
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.45;
     }
-    .admin .small { color: rgba(255,255,255,0.75); }
     footer {
       padding: 28px 20px;
       text-align: center;
@@ -290,16 +231,15 @@
     }
     @media (max-width: 900px) {
       .hero { min-height: auto; }
-      .hero-details, .grid, .admin-panel, .two { grid-template-columns: 1fr; }
+      .hero-details, .grid, .two { grid-template-columns: 1fr; }
       .topbar { align-items: flex-start; flex-direction: column; }
-      table { display: block; overflow-x: auto; white-space: nowrap; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="brand">Rotary <span>Club Chiari</span></div>
-    <a class="admin-link" href="#area-organizzatori">Area organizzatori</a>
+    <a class="admin-link" href="admin.html">Area organizzatori</a>
   </header>
 
   <section class="hero">
@@ -381,63 +321,9 @@
           </label>
 
           <button class="submit" type="submit">Invia registrazione</button>
-          <p class="small">La registrazione viene salvata nell’archivio organizzatori. Nessun pagamento viene gestito online.</p>
+          <p class="small">La registrazione viene inviata all’organizzazione. Nessun pagamento viene gestito online.</p>
           <div id="success" class="success">Registrazione ricevuta. Grazie! L’organizzazione ti confermerà la partecipazione.</div>
         </form>
-      </div>
-    </section>
-
-    <section id="area-organizzatori" class="admin">
-      <div class="admin-shell">
-        <h2>Area organizzatori</h2>
-        <div class="admin-panel">
-          <div class="admin-card">
-            <p>
-              Sezione riservata agli organizzatori, accessibile da indirizzo dedicato <strong>/admin</strong> e protetta da password. Qui vengono visualizzate le registrazioni salvate nel foglio dati collegato.
-            </p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Data</th>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Partecipanti</th>
-                  <th>Stato</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>02/05/2026 09:12</td>
-                  <td>Mario Rossi</td>
-                  <td>mario.rossi@email.it</td>
-                  <td>333 0000000</td>
-                  <td>2</td>
-                  <td><span class="pill">Registrato</span></td>
-                </tr>
-                <tr>
-                  <td>02/05/2026 10:41</td>
-                  <td>Laura Bianchi</td>
-                  <td>laura.bianchi@email.it</td>
-                  <td>335 0000000</td>
-                  <td>1</td>
-                  <td><span class="pill">Registrato</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="admin-card">
-            <div class="login-box">
-              <h3>Accesso protetto</h3>
-              <label for="password">Password organizzatore</label>
-              <input id="password" type="password" placeholder="••••••••" />
-              <a class="download" href="#">Scarica Excel</a>
-              <p class="small">Nella versione reale il pulsante scarica un file .xlsx o .csv con tutte le registrazioni aggiornate.</p>
-            </div>
-            <p class="small">Soluzione a costo zero consigliata: salvataggio su Google Sheet privato, esportabile in Excel dagli organizzatori.</p>
-          </div>
-        </div>
       </div>
     </section>
   </main>
