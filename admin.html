@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Festa Estate Rotary Chiari</title>
+  <meta name="description" content="Pagina di registrazione per la Festa d'Estate Rotary Chiari." />
+  <script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PSb-w2avDu4128RGGXxu7S9oJ8ILzura1kego136TvsBSViJHWfjKuxrqrdsmjz_l7EWSf2Uk-AjHvuIScqjgAPV-vw55a7k7Ey4BG-yGaZzPTR8_-bVXfumQ1Q8_vS90I_qh2OjY3kGK2kqQWgqHk2lOQezpDtBtJgKltY_Aj406sdT04MEDYsig9PFcZXuf_YkAxHIzvjgp_029vFBVI8RLSnWlUKkK7NhdNOHVMc7sHNeRFgWZCfxHhvHLskqgxu2j3xRumz2VI8uekqolQ" charset="UTF-8"></script><style>
+    :root {
+      --bg: #fff8ed;
+      --text: #1f2933;
+      --muted: #5d6673;
+      --primary: #0f4c81;
+      --primary-dark: #0a355b;
+      --accent: #f3b23f;
+      --card: #ffffff;
+      --border: rgba(31, 41, 51, 0.14);
+      --shadow: 0 18px 50px rgba(15, 76, 129, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(243, 178, 63, 0.22), transparent 34rem),
+        linear-gradient(180deg, #fffaf1 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .lock-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: linear-gradient(135deg, #0f4c81, #123b5f);
+    }
+
+    .lock-card {
+      width: min(420px, 100%);
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+
+    .lock-card h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    .lock-card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .password-row {
+      display: grid;
+      gap: 12px;
+    }
+
+    .password-row input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-size: 16px;
+    }
+
+    .password-row button {
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      color: white;
+      background: var(--primary);
+    }
+
+    .error {
+      min-height: 22px;
+      margin-top: 12px;
+      color: #b42318;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .site {
+      display: none;
+    }
+
+    .site.visible {
+      display: block;
+    }
+
+    header {
+      padding: 28px 24px 0;
+    }
+
+    .nav {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--primary);
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .nav a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    main {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 52px 24px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+      min-height: 580px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin: 0 0 22px;
+      color: #12324d;
+    }
+
+    .lead {
+      font-size: clamp(18px, 2.3vw, 23px);
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0 0 30px;
+      max-width: 680px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 12px 24px rgba(15, 76, 129, 0.22);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn.secondary {
+      color: var(--primary);
+      background: #fff;
+      border-color: rgba(15, 76, 129, 0.18);
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .pill strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -80px auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: rgba(243, 178, 63, 0.28);
+    }
+
+    .image-placeholder {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(15,76,129,0.92), rgba(243,178,63,0.72)),
+        url("https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      display: grid;
+      place-items: end start;
+      padding: 24px;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .image-placeholder h2 {
+      position: relative;
+      margin: 0;
+      font-size: 34px;
+      line-height: 1;
+      max-width: 320px;
+    }
+
+    section {
+      margin-top: 54px;
+    }
+
+    .section-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 12px 40px rgba(15, 76, 129, 0.08);
+    }
+
+    h2 {
+      color: #12324d;
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-card p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 17px;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 26px 20px 44px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-card">
+      <h1>Accesso riservato</h1>
+      <p>Inserisci la password per visualizzare la pagina dell’evento.</p>
+      <div class="password-row">
+        <input id="passwordInput" type="password" placeholder="Password" autocomplete="current-password" />
+        <button type="button" onclick="checkPassword()">Entra</button>
+      </div>
+      <div class="error" id="passwordError"></div>
+    </div>
+  </div>
+
+  <div class="site" id="siteContent">
+    <header>
+      <nav class="nav">
+        <div class="brand">
+          <div class="brand-mark">R</div>
+          <div>Rotary Chiari</div>
+        </div>
+        <a href="#registrazione">Registrazione</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Evento estate</div>
+          <h1>Festa d’Estate Rotary Chiari</h1>
+          <p class="lead">
+            Una serata speciale dedicata all’incontro, alla convivialità e alla partecipazione.
+            Registrati tramite il modulo online e scarica il file Excel delle iscrizioni.
+          </p>
+
+          <div class="cta-row" id="registrazione">
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLeAOPprrmzX6BkEd6YiCXZ3d05xISg0DlAAW7CFw-f01e4A/viewform?usp=header" target="_blank" rel="noopener">
+              Iscriviti alla serata
+            </a>
+            <a class="btn secondary" href="#info">Scopri l’evento</a>
+            <a class="btn secondary" href="iscrizioni.xlsx" download>Scarica Excel</a>
+          </div>
+
+          <div class="info-strip">
+            <div class="pill">
+              <strong>Evento</strong>
+              Festa d’Estate
+            </div>
+            <div class="pill">
+              <strong>Club</strong>
+              Rotary Chiari
+            </div>
+            <div class="pill">
+              <strong>Registrazione</strong>
+              Modulo Google
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="image-placeholder">
+            <h2>Una serata da vivere insieme</h2>
+          </div>
+        </aside>
+      </section>
+
+      <section id="info">
+        <div class="section-card">
+          <h2>Informazioni</h2>
+          <p>
+            Usa il pulsante “Iscriviti alla serata” per aprire il modulo di registrazione.
+            Il pulsante “Scarica Excel” permette invece di scaricare il file <strong>iscrizioni.xlsx</strong>,
+            che dovrà essere caricato nella stessa cartella della pagina pubblicata.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © Rotary Chiari — Festa d’Estate
+    </footer>
+  </div>
+
+  <script>
+    const PASSWORD = "Lepasswordsonolemigliori123!";
+
+    function unlockSite() {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("siteContent").classList.add("visible");
+      sessionStorage.setItem("rotaryAccessGranted", "true");
+    }
+
+    function checkPassword() {
+      const value = document.getElementById("passwordInput").value;
+      const error = document.getElementById("passwordError");
+
+      if (value === PASSWORD) {
+        unlockSite();
+      } else {
+        error.textContent = "Password non corretta.";
+      }
+    }
+
+    document.getElementById("passwordInput").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkPassword();
+      }
+    });
+
+    if (sessionStorage.getItem("rotaryAccessGranted") === "true") {
+      unlockSite();
+    }
+  </script>
+</body>
+</html>
